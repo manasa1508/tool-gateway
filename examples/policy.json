@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "mode": "strict",
+  "listen": "127.0.0.1:8844",
+  "token_env": "TOOL_GATEWAY_TOKEN",
+  "principal": "local-user",
+  "audit_path": "/data/audit.local.jsonl",
+  "limits": {
+    "max_message_bytes": 1048576,
+    "request_timeout_ms": 15000,
+    "max_sessions": 64,
+    "session_ttl_seconds": 900,
+    "max_calls": 100,
+    "max_output_bytes": 8388608
+  },
+  "servers": {
+    "demo": {
+      "command": [
+        "/usr/local/bin/tool-gateway",
+        "demo-server"
+      ],
+      "tools": {
+        "read_note": {
+          "description": "Read a demonstration internal note.",
+          "sha256": "058818704c02a3dd95edd50f0ef291bf182a791cd22459ce0ec7e0f411a0be96",
+          "effect": "read",
+          "produces": [
+            "internal"
+          ],
+          "accepts": [
+            "internal"
+          ]
+        },
+        "send_message": {
+          "description": "Send a demonstration message; never actually contacts a network.",
+          "sha256": "089d7eedf8a5896b6172d3dd7202fd54a37349c6d096afc72ec1cd00c64b7d72",
+          "effect": "egress",
+          "max_calls": 2
+        }
+      }
+    }
+  }
+}

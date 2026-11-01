@@ -1,0 +1,9 @@
+.git
+bin
+dist
+*.local.*
+**/*.local.*
+*.key
+*.pem
+.env*
+coverage.out

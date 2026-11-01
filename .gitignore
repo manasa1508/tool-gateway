@@ -1,0 +1,14 @@
+/bin/
+/dist/
+*.local.json
+*.local.jsonl
+*.local.key
+*.key
+*.pem
+.env
+.env.*
+coverage.out
+*.test
+__pycache__/
+.DS_Store
+.container-data/
